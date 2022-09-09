@@ -6,7 +6,7 @@ int digitoCuenta[9];
 int main()
 {
 	int i, j;
-	printf("Ingresa tu numero de cuenta:\n");
+	printf("Ingresa tu numero de cuenta, despues de cada numero da enter:\n");
 	for(i=0; i<9; i++)
 	{
 		//j = getchar();
