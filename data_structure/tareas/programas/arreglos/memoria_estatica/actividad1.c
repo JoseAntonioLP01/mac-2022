@@ -1,72 +1,57 @@
-#include <stdio.h> 
+#include <stdio.h>
 #include <stdlib.h>
 
-struct alumnos
-{
-	char nombre[25];
-	int edad;
-	int calificacion;
-} datos[1000];
+int noCuenta[9];
+int noPares[10];
 
-int promedioEdad();
-int promedioCalif();
-int nombresOrden();
+int i, j, numeroGuia = 0;
 
-int promedioEd, promedioCa, contador, n;
-
+int generarPares();
+int modificacion();
+int impresion();
 
 int main()
 {
-	printf("Ingresa la cantidad de alumnos a registrar: ");
-	scanf("%d", &n);
-	for (contador=0; contador<n; contador++)
+    printf("Ingresa tu numero de cuenta, despues de cada numero da enter:\n");
+	for(i=0; i<9; i++)
 	{
-		printf("\nIngresa el nombre del alumno %d: ", contador+1);
-		scanf("%s", &datos[contador].nombre);
-		//printf("\nNombre capturado: %s", datos[contador].nombre);
-		printf("\nIngresa la edad de %s: ", datos[contador].nombre);
-		scanf("%d", &datos[contador].edad);
-		//printf("\nEdad capturada: %d", datos[contador].edad);
-		printf("\nIngresa la calificacion de %s: ", datos[contador].nombre);
-		scanf("%d", &datos[contador].calificacion);
-		//printf("\nCalificacion ingresada: %d", datos[contador].calificacion);
+	    scanf("%d", &noCuenta[i]);
 	}
-    printf("\n");
-	promedioEdad();
-    printf("\n");
-	promedioCalif();
-    printf("\n");
-    nombresOrden();
-	return 0;
+    generarPares();
+    modificacion();
+    impresion();
+    return 0;
 }
 
-promedioEdad()
+generarPares()
 {
-	int sumaEd=0;
-	for (contador=0; contador<n; contador++)
-	{
-		sumaEd=sumaEd+datos[contador].edad;
-	}
-	promedioEd = sumaEd/n;
-	printf("\nPromedio de edad: %d", promedioEd);
-}
-
-promedioCalif()
-{
-	int sumaCa=0;
-	for (contador=0; contador<n; contador++)
-	{
-		sumaCa=sumaCa+datos[contador].calificacion;
-	}
-	promedioCa=sumaCa/n;
-	printf("\nPromedio de calificacion: %d", promedioCa);
-}
-
-nombresOrden()
-{
-    printf("\nAlumnos en sentido inverso al que fueron ingresados");
-    for (contador=n; contador>=0; contador--)
+    printf("Inicio de funcion generarPares\n");
+    for(i=0; i<10; i++)
     {
-        printf("%s\n", datos[contador].nombre);
+        numeroGuia = numeroGuia + 2;
+        noPares[i] = numeroGuia;
+        printf("%d ", noPares[i]);
     }
+    printf("\nFin de funcion\n");
+}
+
+modificacion()
+{
+    printf("Inicio de funcion modificacion\n");
+    printf("%d\n", noCuenta[8]);
+    j = noCuenta[8];
+    noPares[j] = -1;
+    printf("%d\n", j);
+    printf("Fin de funcion\n");
+}
+
+impresion()
+{
+    printf("Inicio de funcion impresion\n");
+    for(i=0; i<10; i++)
+    {
+        printf("| %d ", noPares[i]);
+    }
+    printf("| \n");
+    printf("Fin de funcion\n");
 }
